@@ -1,0 +1,5 @@
+http://mp.baomidou.com/#/wrapper
+
+来源与此网站的学习spring mvc mybatis-plus框架
+
+http://blog.csdn.net/j080624/article/details/53885605 jquery一开始就加载的三种方法

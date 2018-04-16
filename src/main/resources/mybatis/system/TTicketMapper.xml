@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.springmvc.mapper.system.TTicketDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="TTicket">
+        <id column="ticketId" property="ticketId" />
+        <result column="ticketAddress" property="ticketAddress" />
+        <result column="ticketPrice" property="ticketPrice" />
+        <result column="ticketCId" property="ticketCId" />
+        <association property="tCustomer" javaType="TCustomer">
+                <id column="customerId" property="customerId"></id>
+                <result column="customerName" property="customerName" />
+                <result column="customerTel" property="customerTel" />
+        </association>
+    </resultMap>
+    <select id="selectCustomerByTicketId" resultMap="BaseResultMap" parameterType="int">
+          <![CDATA[
+            SELECT * from t_customer c,t_ticket t WHERE t.ticketCId=c.customerId AND t.ticketId=#{ticketId};
+        ]]>
+    </select>
+
+</mapper>
